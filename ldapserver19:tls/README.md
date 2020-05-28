@@ -106,11 +106,11 @@ BASE dc=edt,dc=org
 ```
 
 ### Configuració del client
-· Afegir entrada corresponent a /etc/hosts
+* Afegir entrada corresponent a /etc/hosts
 
-· Copiar el certificat de la CA creat previament a /etc/openldap/ca_certif.pem
+* Copiar el certificat de la CA creat previament a /etc/openldap/ca_certif.pem
 
-· Editar el fitxer /etc/open/ldap/ldap.conf:
+* Editar el fitxer /etc/open/ldap/ldap.conf:
 ```
 TLS_CACERT /etc/openldap/ca_certif.pem
 TLS_REQCERT allow
@@ -123,12 +123,12 @@ SASL_NOCANON on
 
 ## Comprovació
 
-· Arrencar el servidor ldap
+* Arrencar el servidor ldap
 ```
 docker run --rm --name ldap.edt.org -h ldap.edt.org  -p 389:389 -p 636:636 -d isx39443774/ldapserver19:tls
 ```
 
-· ldapsearch
+* ldapsearch
 ```
 [root@localhost ldapserver19:tls]# ldapsearch -x -LLL -ZZ dn
 dn: dc=edt,dc=org
@@ -155,7 +155,7 @@ dn: ou=productes,dc=edt,dc=org
 ...
 ```
 
-· openssl
+* openssl
 ```
 [root@localhost ldapserver19:tls]# openssl s_client -connect ldap.edt.org:636
 CONNECTED(00000003)
